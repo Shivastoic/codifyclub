@@ -3,7 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 
 // IMPORT NEXT COMPONENTS
-import Header from "@/app/components/header/Header";
+import Header from "@/app/components/header/index";
 
 // Local Fonts
 const geistSans = localFont({
@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
                 {/* Fonts */}
 
             </Head>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
                 <Header />
                 <main>{ children }</main>
 
