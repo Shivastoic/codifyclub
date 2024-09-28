@@ -29,14 +29,14 @@ const navItems = [
 	},
 ]
 
-export default function index() {
+export default function Navbar() {
 
 	const pathname = usePathname();
 	const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
 	return (
 
-		<motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className="h-dvh bg-black fixed right-0 top-0 max-w-[360px] w-full">
+		<motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className="h-dvh z-40 bg-accent fixed right-0 top-0 max-w-[360px] w-full">
 			<div className="box-border h-full px-12 py-10 flex flex-col justify-between">
 				<div onMouseLeave={() => {setSelectedIndicator(pathname)}} className="flex flex-col gap-6 text-4xl text-white py-4 mt-4">
 					<div className="border-b-[1px] border-gray-100">
