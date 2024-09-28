@@ -8,27 +8,27 @@ const links = [
 	{
 		icon: <FaSquareInstagram />,
 		link: "https://www.instagram.com/codifyclub/",
-		color: "bg-pink-500",
+		color: "text-pink-500",
 	},
 	{
 		icon: <FaLinkedinIn />,
 		link: "/",
-		color: "bg-blue-500",
+		color: "text-blue-500",
 	},
 	{
 		icon: <FaGithub />,
 		link: "/",
-		color: "bg-black",
+		color: "text-black",
 	},
 	{
 		icon: <IoMdMail />,
 		link: "/",
-		color: "bg-red-400",
+		color: "text-red-400",
 	},
 
 ]
 
-export default function index() {
+export default function NavFooter() {
 	
     return (
 
@@ -38,8 +38,8 @@ export default function index() {
 				links.map(( data, index ) => (
 
 					<Link key={index} href={data.link} target="blank">
-						<div className={`bg-white rounded-full size-12 flex items-center justify-center group hover:${data.color} duration-150`}>
-							<span className={`group-hover:text-${data.color} duration-150 text-xl`}>{ data.icon }</span>
+						<div className={`bg-white rounded-full size-12 flex items-center justify-center group`}>
+							<span className={`${data.color} duration-150 text-xl`}>{ data.icon }</span>
 						</div>
 					</Link>
 
