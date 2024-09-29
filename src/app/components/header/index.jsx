@@ -24,14 +24,14 @@ export default function Header() {
 			<div className="fixed top-0 right-0 flex items-center justify-between w-full z-50 p-4">
 				<Link href="/">
 					<Image
-						className={`lg:w-32 w-28 z-30`}
+						className={`lg:w-28 w-24 z-30`}
 						src="/logos/codify-black.png"
 						width={100}
 						height={50}
 						alt="logo"
 					/>
 				</Link>
-				<div onClick={() => {setIsActive(!isActive)}} className={`size-14 flex items-center justify-center cursor-pointer rounded-full ${isActive ? "bg-white" : "bg-blue-400"}`}>
+				<div onClick={() => {setIsActive(!isActive)}} className={`size-12 flex items-center justify-center cursor-pointer rounded-full ${isActive ? "bg-white" : "bg-accent"}`}>
 					<div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
 				</div>
 			</div>

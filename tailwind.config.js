@@ -8,7 +8,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				"accent": "#151515",
+				"accent": "#FF885B",
 			},
 			transitionTimingFunction: {
 				'custom-bezier': 'cubic-bezier(0.76, 0, 0.24, 1)',
