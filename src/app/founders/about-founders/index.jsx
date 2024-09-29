@@ -94,6 +94,28 @@ const projects = [
             },
 
         ],
+    },
+    {
+        title: "Indrakshi",
+        src: "indrakshi.jpeg",
+        color: "#706D63",
+        mainLink: "https://www.linkedin.com/in/-indrakshi-/",
+        links: [
+
+            {
+                icon: <FaLinkedinIn />,
+                link: "/",
+            },
+            {
+                icon: <FaGithub />,
+                link: "/",
+            },
+            {
+                icon: <FaInstagram />,
+                link: "/",
+            },
+
+        ],
     }
 ]
 

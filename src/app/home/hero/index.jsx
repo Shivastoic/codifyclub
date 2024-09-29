@@ -9,6 +9,7 @@ import { Autoplay } from "swiper/modules"
 
 import Image from "next/image"
 import Container from "@/app/components/container"
+import Rings from "./rings"
 
 const data = [
 
@@ -31,11 +32,12 @@ export default function Hero(){
 
     return (
 
-        <section className="pt-20 bg-[url('/images/hero-bg.svg')] bg-no-repeat bg-cover">
+        <section className="relative pt-20 bg-[url('/images/hero-background.jpg')] bg-no-repeat bg-cover bg-center bg-dark overflow-hidden">
+            <Rings />
             <Container>
                 <div className="flex flex-col gap-4 md:gap-6 pt-8 pb-16">
-                    <h1 className="text-5xl md:text-6xl lg:text-9xl text-neutral-400">Welcome,</h1>
-                    <div className="h-full aspect-video rounded-2xl md:rounded-3xl bg-neutral-100 relative overflow-hidden">
+                    <h1 className="text-5xl md:text-6xl lg:text-9xl text-neutral-300 z-10">Welcome,</h1>
+                    <div className="h-full aspect-video rounded-2xl md:rounded-3xl relative overflow-hidden">
                         <div className="absolute top-1 left-1 md:top-4 md:left-4 z-20 rounded-full bg-accent px-4 md:px-6 py-1 md:py-2">
                             <span className="text-white text-xs md:text-lg md:font-medium">Upcoming</span>
                         </div>

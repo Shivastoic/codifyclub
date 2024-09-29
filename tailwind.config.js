@@ -8,6 +8,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				"dark": "#0E0D15",
 				"accent": "#FF885B",
 			},
 			transitionTimingFunction: {

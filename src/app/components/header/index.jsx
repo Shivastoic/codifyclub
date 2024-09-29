@@ -25,7 +25,7 @@ export default function Header() {
 				<Link href="/">
 					<Image
 						className={`lg:w-28 w-24 z-30`}
-						src="/logos/codify-black.png"
+						src="/logos/codify-white.png"
 						width={100}
 						height={50}
 						alt="logo"

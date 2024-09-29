@@ -63,8 +63,8 @@ export default function Index() {
 
     return (
 
-		<section className="flex flex-col pt-24 bg-white">
-            <div className="flex flex-col gap-6 sm:gap-8 lg:gap-14">
+		<section className="flex flex-col pt-24 bg-dark">
+            <div className="flex flex-col gap-6 sm:gap-8 lg:gap-14 bg-[url('/images/hero-background.jpg')] bg-no-repeat bg-cover bg-center">
                 <div className="absolute top-28 left-32">
                     <Image 
                         alt='arrow'
@@ -75,8 +75,8 @@ export default function Index() {
                     />
                 </div>
                 <div className="flex justify-end gap-2 px-4">
-                    <div className="mb-[6px] md:mb-4 border-b-4 lg:border-b-8 border-black w-6 md:w-16 lg:w-20"></div>
-                    <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[180px] font-semibold">Founders.</h1>
+                    <div className="mb-[6px] md:mb-4 border-b-4 lg:border-b-8 border-white w-6 md:w-16 lg:w-20"></div>
+                    <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[180px] text-white font-semibold">Founders.</h1>
                 </div>
                 <div ref={container} className="hidden md:block h-[300vh] relative">
                     <div className="sticky overflow-hidden top-0 h-screen">
@@ -104,20 +104,22 @@ export default function Index() {
                     </div>
                 </div>
             </div>
-            <Container>
-                <div className="flex flex-col justify-center gap-6 py-4">
-                    <div className="md:hidden">
-                        <Image
-                            src={mainPic}
-                            alt="mainpic"
-                            className="object-cover"
-                        />
+            <div className="bg-white">
+                <Container>
+                    <div className="flex flex-col justify-center gap-6 py-4">
+                        <div className="md:hidden">
+                            <Image
+                                src={mainPic}
+                                alt="mainpic"
+                                className="object-cover"
+                            />
+                        </div>
+                        <div className="py-6">
+                            <AboutFounders />
+                        </div>
                     </div>
-                    <div className="py-6">
-                        <AboutFounders />
-                    </div>
-                </div>
-            </Container>
+                </Container>
+            </div>
 		</section>
 
     )
