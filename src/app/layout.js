@@ -4,6 +4,7 @@ import Head from "next/head";
 
 // IMPORT NEXT COMPONENTS
 import Header from "@/app/components/header/index";
+import Footer from "@/app/components/footer/index";
 
 // Local Fonts
 const geistSans = localFont({
@@ -67,7 +68,7 @@ export default function RootLayout({ children }) {
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
                 <Header />
                 <main>{ children }</main>
-
+                <Footer />
             </body>
         </html>
 
