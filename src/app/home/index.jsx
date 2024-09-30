@@ -1,4 +1,5 @@
 import Hero from "./hero";
+import Opportunity from "./opportunity";
 
 export default function HomeComponents() {
 
@@ -6,6 +7,7 @@ export default function HomeComponents() {
 		
 		<>
             <Hero />
+            <Opportunity />
         </>
 
     );

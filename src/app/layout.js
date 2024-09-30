@@ -1,25 +1,23 @@
-import localFont from "next/font/local";
 import "./globals.css";
-import Head from "next/head";
 
 // IMPORT NEXT COMPONENTS
 import Header from "@/app/components/header/index";
 import Footer from "@/app/components/footer/index";
 
-// Local Fonts
-const geistSans = localFont({
+import localFont from 'next/font/local';
 
-    src: "./fonts/GeistVF.woff",
-    variable: "--font-geist-sans",
-    weight: "100 900",
-
+// Load Sora font
+const sora = localFont({
+    src: '/fonts/Sora-Variablefont_wght.ttf',
+    variable: '--font-sora',
+    display: 'swap',
 });
-const geistMono = localFont({
 
-    src: "./fonts/GeistMonoVF.woff",
-    variable: "--font-geist-mono",
-    weight: "100 900",
-
+// Load Syne font
+const syne = localFont({
+    src: '/fonts/Syne-Variablefont_wght.ttf',
+    variable: '--font-syne',
+    display: 'swap',
 });
 
 // Metadata for SEO
@@ -28,7 +26,38 @@ export const metadata = {
     title: "Codify-Club",
     description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
     keywords: "coding club, programming, student coding, coding education, learn to code, coding workshops, software development, computer science, coding tutorials, tech community, student projects, coding resources, programming languages, hackathons, coding bootcamp, student support",
-    author: "Shiva",
+    authors: { name: "Shiva" },
+    openGraph: {
+
+        title: "Codify-Club",
+        description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
+        url: "https://yourdomain.com",
+        images: [
+            {
+                url: "https://yourdomain.com/og-image.jpg",
+                width: 800,
+                height: 600,
+                alt: "Og Image Alt",
+            },
+        ],
+
+    },
+    twitter: {
+
+        card: "summary_large_image",
+        title: "Codify-Club",
+        description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
+        images: ["https://yourdomain.com/twitter-image.jpg"],
+
+    },
+    icons: {
+
+        icon: [
+            { url: "/favicon.svg", type: "image/svg+xml" },
+            { url: "/favicon.png", type: "image/png" },
+        ],
+
+    },
 
 };
 
@@ -37,37 +66,9 @@ export default function RootLayout({ children }) {
     return (
 
         <html lang="en">
-            <Head>
-                {/* Title and Meta Description */}
-                <title>{ metadata.title }</title>
-                <meta name="description" content={ metadata.description } />
-                <meta name="keywords" content={ metadata.keywords } />
-                <meta name="author" content={ metadata.author } />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-                {/* Open Graph Meta Tags */}
-                <meta property="og:title" content={ metadata.title } />
-                <meta property="og:description" content={ metadata.description } />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://yourdomain.com" />
-                <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
-
-                {/* Twitter Meta Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={ metadata.title } />
-                <meta name="twitter:description" content={ metadata.description } />
-                <meta name="twitter:image" content="https://yourdomain.com/twitter-image.jpg" />
-
-                {/* Favicon */}
-                <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
-                <link rel="icon" href="/favicon.png" type="png" sizes="any" />
-
-                {/* Fonts */}
-
-            </Head>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
+            <body className={`${sora.variable} ${syne.variable} antialiased bg-dark`}>
                 <Header />
-                <main>{ children }</main>
+                <main>{children}</main>
                 <Footer />
             </body>
         </html>

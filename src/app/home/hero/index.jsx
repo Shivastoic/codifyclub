@@ -10,6 +10,7 @@ import { Autoplay } from "swiper/modules"
 import Image from "next/image"
 import Container from "@/app/components/container"
 import Rings from "./rings"
+import ScrollDown from "./scroll-down"
 
 const data = [
 
@@ -33,10 +34,13 @@ export default function Hero(){
     return (
 
         <section className="relative pt-20 bg-[url('/images/hero-background.jpg')] bg-no-repeat bg-cover bg-center bg-dark overflow-hidden">
+            <div class="hidden absolute top-0 left-5 w-[1px] h-full bg-neutral-600/25 pointer-events-none md:block lg:left-7.5 xl:left-10"></div>
+            <div class="hidden absolute top-0 right-5 w-[1px] h-full bg-neutral-600/25 pointer-events-none md:block lg:right-7.5 xl:right-10"></div>
             <Rings />
             <Container>
-                <div className="flex flex-col gap-4 md:gap-6 pt-8 pb-16">
-                    <h1 className="text-5xl md:text-6xl lg:text-9xl text-neutral-300 z-10">Welcome,</h1>
+                <div className="relative flex flex-col gap-4 md:gap-6 pt-8 lg:pt-16 pb-16">
+                    <h1 className="text-5xl md:text-6xl lg:text-9xl text-white font-syne font-semibold z-10">Welcome,</h1>
+                    <div className="absolute top-[18%] md:top-[15%] right-6 md:right-20 z-10"><ScrollDown /></div>
                     <div className="h-full aspect-video rounded-2xl md:rounded-3xl relative overflow-hidden">
                         <div className="absolute top-1 left-1 md:top-4 md:left-4 z-20 rounded-full bg-accent px-4 md:px-6 py-1 md:py-2">
                             <span className="text-white text-xs md:text-lg md:font-medium">Upcoming</span>

@@ -76,7 +76,7 @@ export default function Index() {
                 </div>
                 <div className="flex justify-end gap-2 px-4">
                     <div className="mb-[6px] md:mb-4 border-b-4 lg:border-b-8 border-white w-6 md:w-16 lg:w-20"></div>
-                    <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[180px] text-white font-semibold">Founders.</h1>
+                    <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[180px] text-white font-syne font-semibold">Founders.</h1>
                 </div>
                 <div ref={container} className="hidden md:block h-[300vh] relative">
                     <div className="sticky overflow-hidden top-0 h-screen">

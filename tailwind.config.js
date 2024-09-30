@@ -14,6 +14,19 @@ module.exports = {
 			transitionTimingFunction: {
 				'custom-bezier': 'cubic-bezier(0.76, 0, 0.24, 1)',
 			},
+			keyframes: {
+				bounceUpDown: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+			},
+			animation: {
+				bounceUpDown: 'bounceUpDown 2s ease-in-out infinite',
+			},
+			fontFamily: {
+				sora: ['var(--font-sora)', 'sans-serif'],
+        		syne: ['var(--font-syne)', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [],
