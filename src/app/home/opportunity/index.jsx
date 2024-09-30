@@ -32,7 +32,7 @@ export default function Opportunity(){
                         alt="ball"
                         width={200}
                         height={200}
-                        className="size-52 absolute top-24 left-0"  
+                        className="size-52 absolute top-24 left-0 animate-bounceUpDown"  
                     />
                     <div className="grid grid-cols-3 gap-6 h-dvh w-full">
                         <div className="w-full h-full rounded-xl bg-neutral-400/25 col-span-2 row-span-2"></div>
