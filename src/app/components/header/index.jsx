@@ -10,6 +10,8 @@ import Link from 'next/link';
 export default function Header() {
 
     const [isActive, setIsActive] = useState(false);
+	const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const pathname = usePathname();
 
     useEffect( () => {
@@ -18,10 +20,37 @@ export default function Header() {
 
     }, [pathname])
 
+	// Handle scroll direction for header visibility
+    useEffect(() => {
+
+        const handleScroll = () => {
+
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 0) {
+
+                setIsVisible(false); // Hide header when scrolling down
+
+            } else {
+
+                setIsVisible(true); // Show header when scrolling up
+
+            }
+
+            setLastScrollY(currentScrollY);
+
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+
+    }, [lastScrollY]);
+
     return (
 
 		<header>
-			<div className="fixed top-0 right-0 flex items-center justify-between w-full z-50 p-4">
+			<div className={`fixed top-0 right-0 flex items-center justify-between w-full z-50 p-4 transition-trasnform duration-300 ${ isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0" }`}>
 				<Link href="/">
 					<Image
 						className={`lg:w-28 w-24 z-30`}
