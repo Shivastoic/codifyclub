@@ -6,6 +6,12 @@ import FounderModal from './modal';
 
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa6"
 
+const iconMap = {
+    FaLinkedinIn: <FaLinkedinIn />,
+    FaGithub: <FaGithub />,
+    FaInstagram: <FaInstagram />,
+}
+
 const projects = [
     {
         title: "Shiva Pandey",
@@ -15,15 +21,15 @@ const projects = [
         links: [
 
             {
-                icon: <FaLinkedinIn />,
+                icon: "FaLinkedinIn",
                 link: "/",
             },
             {
-                icon: <FaGithub />,
+                icon: "FaGithub",
                 link: "/",
             },
             {
-                icon: <FaInstagram />,
+                icon: "FaInstagram",
                 link: "/",
             },
 
@@ -37,15 +43,15 @@ const projects = [
         links: [
 
             {
-                icon: <FaLinkedinIn />,
+                icon: "FaLinkedinIn",
                 link: "/",
             },
             {
-                icon: <FaGithub />,
+                icon: "FaGithub",
                 link: "/",
             },
             {
-                icon: <FaInstagram />,
+                icon: "FaInstagram",
                 link: "/",
             },
 
@@ -59,15 +65,15 @@ const projects = [
         links: [
 
             {
-                icon: <FaLinkedinIn />,
+                icon: "FaLinkedinIn",
                 link: "/",
             },
             {
-                icon: <FaGithub />,
+                icon: "FaGithub",
                 link: "/",
             },
             {
-                icon: <FaInstagram />,
+                icon: "FaInstagram",
                 link: "/",
             },
 
@@ -81,15 +87,15 @@ const projects = [
         links: [
 
             {
-                icon: <FaLinkedinIn />,
+                icon: "FaLinkedinIn",
                 link: "/",
             },
             {
-                icon: <FaGithub />,
+                icon: "FaGithub",
                 link: "/",
             },
             {
-                icon: <FaInstagram />,
+                icon: "FaInstagram",
                 link: "/",
             },
 
@@ -103,15 +109,15 @@ const projects = [
         links: [
 
             {
-                icon: <FaLinkedinIn />,
+                icon: "FaLinkedinIn",
                 link: "/",
             },
             {
-                icon: <FaGithub />,
+                icon: "FaGithub",
                 link: "/",
             },
             {
-                icon: <FaInstagram />,
+                icon: "FaInstagram",
                 link: "/",
             },
 
@@ -124,6 +130,7 @@ export default function AboutFounders() {
     const [modal, setModal] = useState({active: false, index: 0})
 
     return (
+
         <div className="flex items-center justify-center h-full w-full">
             <div className="max-w-[1000px] w-full flex flex-col items-center justify-center">
                 {
@@ -138,5 +145,7 @@ export default function AboutFounders() {
             </div>
             <FounderModal modal={modal} projects={projects}/>
         </div>
+        
     )
+
 }

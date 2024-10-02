@@ -6,8 +6,11 @@ import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs';
 
 export default function Header() {
+
+	const { user } = useUser();
 
     const [isActive, setIsActive] = useState(false);
 	const [isVisible, setIsVisible] = useState(true);
@@ -60,8 +63,22 @@ export default function Header() {
 						alt="logo"
 					/>
 				</Link>
-				<div onClick={() => {setIsActive(!isActive)}} className={`size-12 flex items-center justify-center cursor-pointer rounded-full ${isActive ? "bg-white" : "bg-accent"}`}>
-					<div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+				<div className="flex gap-4 items-center">
+					<SignedOut>
+						<SignInButton mode='modal' className="px-5 py-3 text-sm rounded-full bg-white/30 backdrop-blur-sm text-white font-sora font-medium "/>
+					</SignedOut>
+					<SignedIn>
+						<UserButton 
+							appearance={{
+								elements: {
+									userButtonAvatarBox: "rounded-full border border-gray-500 size-10"
+								}
+							}} 
+						/>
+					</SignedIn>
+					<div onClick={() => {setIsActive(!isActive)}} className={`size-12 flex items-center justify-center cursor-pointer rounded-full ${isActive ? "bg-white" : "bg-accent"}`}>
+						<div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+					</div>
 				</div>
 			</div>
 			<AnimatePresence mode="wait">
