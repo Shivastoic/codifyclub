@@ -21,7 +21,7 @@ export default function FounderProject({index, title, setModal, links, mainLink}
 
                                 <Link key={index} href={data.link} className="md:hidden">
                                     <div className="">
-                                        <span className="text-xl">{data.icon}</span>
+                                        <span className="text-xl">{<data.icon/>}</span>
                                     </div>
                                 </Link>
 
