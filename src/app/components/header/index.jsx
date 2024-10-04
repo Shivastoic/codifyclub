@@ -56,8 +56,8 @@ export default function Header() {
 			<div className={`fixed top-0 right-0 flex items-center justify-between w-full z-50 p-4 transition-trasnform duration-300 ${ isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0" }`}>
 				<Link href="/">
 					<Image
-						className={`lg:w-28 w-24 z-30`}
-						src="/logos/codify-white.png"
+						className={`w-11 z-30`}
+						src="/logos/codify-c-black.png"
 						width={100}
 						height={50}
 						alt="logo"

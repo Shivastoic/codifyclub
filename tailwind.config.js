@@ -9,6 +9,7 @@ module.exports = {
 		extend: {
 			colors: {
 				"dark": "#0E0D15",
+				"light": "#ededed",
 				"accent": "#FF885B",
 			},
 			transitionTimingFunction: {
@@ -26,6 +27,8 @@ module.exports = {
 			fontFamily: {
 				sora: ['var(--font-sora)', 'sans-serif'],
         		syne: ['var(--font-syne)', 'sans-serif'],
+        		apercu: ['var(--font-apercu)', 'sans-serif'],
+        		bebas: ['var(--font-bebas)', 'sans-serif'],
 			},
 		},
 	},
