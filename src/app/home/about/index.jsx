@@ -18,7 +18,7 @@ export default function About(){
 
     return (
 
-        <section className="relative py-14 sm:py-20 lg:py-28 bg-white">
+        <section className="relative py-10 sm:py-16 lg:pt-20 lg:pb-32 bg-light">
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20">
                     <div className="relative">
@@ -41,12 +41,14 @@ export default function About(){
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col gap-8 md:gap-16">
-                        <h2 className="relative text-5xl md:text-7xl lg:text-9xl font-sora font-semibold lg:text-right">
-                            { data.heading }
-                            <span className="hidden lg:block absolute bottom-6 left-0 max-w-[70%] w-full h-2 bg-black"></span>
-                        </h2>
-                        <p className="text-lg font-syne">{ data.description }</p>
+                    <div className="flex flex-col gap-8 md:gap-20">
+                        <div className="flex flex-col gap-4">
+                            <h2 className="relative text-5xl md:text-7xl lg:text-[200px] tracking-wide font-bebas lg:text-right">
+                                { data.heading }
+                                <span className="hidden lg:block absolute bottom-10 left-0 max-w-[70%] w-full h-2 bg-black"></span>
+                            </h2>
+                            <p className="text-lg font-syne">{ data.description }</p>
+                        </div>
                         <div className="flex flex-col-reverse md:flex-row md:items-center gap-6">
                             <Link href={ data.button_link }>
                                 <PrimaryButtonDark>{ data.button_text }</PrimaryButtonDark>

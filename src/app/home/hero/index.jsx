@@ -1,18 +1,42 @@
-"use client"
-// SWIPER IMPORT 
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css/bundle"
-import "swiper/css/autoplay"
-
-// Import Swiper modules
-import { Autoplay } from "swiper/modules"
-
-import Image from "next/image"
+import Link from "next/link"
 import Container from "@/app/components/container"
 import Rings from "./rings"
 import ScrollDown from "./scroll-down"
+import DotButton from "@/app/components/buttons/dot-button"
+import DotButtonDark from "@/app/components/buttons/dot-button-dark"
+import HeroSlider from "./hero-slider"
 
-const data = [
+const data = {
+
+    subtitle: "Welcome to,",
+    title: "Codify club",
+    button_one_link: "/",
+    button_one_text: "Lounge",
+    button_two_link: "/",
+    button_two_text: "Career",
+    button_three_link: "/",
+    button_three_text: "Resources",
+
+}
+
+const heroList = [
+
+    {
+        item: "Engaging Community",
+    },
+    {
+        item: "Learning platform",
+    },
+    {
+        item: "Events like Hackathons, Tech fiestas",
+    },
+    {
+        item: "Career opportunities",
+    },
+
+]
+
+const sliderData = [
 
     {
         src: "/images/hero-slider/slide-1.jpg",
@@ -33,50 +57,44 @@ export default function Hero(){
 
     return (
 
-        <section className="relative pt-20 bg-[url('/images/hero-background.jpg')] bg-no-repeat bg-cover bg-center bg-dark overflow-hidden">
-            <div className="hidden absolute top-0 left-5 w-[1px] h-full bg-neutral-600/25 pointer-events-none md:block lg:left-7.5 xl:left-10"></div>
-            <div className="hidden absolute top-0 right-5 w-[1px] h-full bg-neutral-600/25 pointer-events-none md:block lg:right-7.5 xl:right-10"></div>
+        <section className="relative pb-10 pt-20 md:py-20 bg-light overflow-hidden">
             <Rings />
-            <Container>
-                <div className="relative flex flex-col gap-4 md:gap-6 pt-8 lg:pt-16 pb-16">
-                    <h1 className="text-5xl md:text-6xl lg:text-9xl text-white font-syne font-semibold z-10">Welcome,</h1>
-                    <div className="absolute top-[18%] md:top-[15%] right-6 md:right-20 z-10"><ScrollDown /></div>
-                    <div className="h-full md:aspect-video rounded-2xl md:rounded-3xl relative overflow-hidden">
-                        <div className="absolute top-1 left-1 md:top-4 md:left-4 z-20 rounded-full bg-accent px-4 md:px-6 py-1 md:py-2 cursor-default">
-                            <span className="text-white text-xs md:text-lg md:font-medium">Upcoming</span>
-                        </div>
-                        <Swiper 
-                            className="mySwiper"
-                            loop={true}
-                            autoplay={{
-                                delay: 4000,
-                                disableOnInteraction: false,
-                            }}
-                            modules={[Autoplay]}
-                        >
-                            {
-
-                                data.map( ( item, index ) => (
-
-                                    <SwiperSlide key={index}>
-                                        <div className="w-full h-full">
-                                            <Image 
-                                                src={item.src}
-                                                alt={item.alt}
-                                                width={1000}
-                                                height={1000}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                    </SwiperSlide>
-
-                                ))
-
-                            }
-                        </Swiper>
+            <div className="absolute top-[25%] md:top-[31%] right-10 md:right-16 z-10"><ScrollDown /></div>
+            <div className="pt-10 flex flex-col gap-6">
+                <div className="space-y-4 z-10">
+                    <h3 className="text-center font-sora text-xl">{ data.subtitle }</h3>
+                    <h1 className="text-5xl md:text-6xl lg:text-[140px] tracking-wide text-center text-neutral-900 font-bebas uppercase z-10">{ data.title }</h1>
+                    <div className="flex items-center justify-center gap-2 md:gap-4">
+                        <Link href={ data.button_one_link }>
+                            <DotButton>{ data.button_one_text }</DotButton>
+                        </Link>
+                        <Link href={ data.button_two_link }>
+                            <DotButton>{ data.button_two_text }</DotButton>
+                        </Link>
+                        <Link href={ data.button_three_link }>
+                            <DotButtonDark>{ data.button_three_text }</DotButtonDark>
+                        </Link>
                     </div>
-                </div>    
-            </Container>
+                </div>
+                <div className="mx-4 py-6 md:p-10 flex items-center justify-center bg-dark rounded-xl">
+                    <Container>
+                        <div className="relative flex flex-col gap-6 md:gap-10 py-8 lg:py-12 lg:px-32">
+                            <HeroSlider sliderData={ sliderData } />
+                            <ul className="list-disc list-inside space-y-2">
+                                {
+
+                                    heroList.map( ( data, index ) => (
+
+                                        <li key={ index } className="text-sm text-neutral-300 uppercase font-syne font-bold">{ data.item }</li>
+
+                                    ))
+
+                                }
+                            </ul>
+                        </div>    
+                    </Container>
+                </div>
+            </div>
         </section>
 
     )

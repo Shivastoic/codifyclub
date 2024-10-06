@@ -21,6 +21,20 @@ const syne = localFont({
     display: 'swap',
 });
 
+// Load apercu font
+const apercu = localFont({
+    src: '/fonts/Apercu-Medium.otf',
+    variable: '--font-apercu',
+    display: 'swap',
+});
+
+// Load Syne font
+const bebas = localFont({
+    src: '/fonts/BebasNeue-Regular.ttf',
+    variable: '--font-bebas',
+    display: 'swap',
+});
+
 // Metadata for SEO
 export const metadata = {
 
@@ -68,7 +82,7 @@ export default function RootLayout({ children }) {
 
         <ClerkProvider>
             <html lang="en">
-                <body className={`${sora.variable} ${syne.variable} antialiased bg-dark`}>
+                <body className={`${sora.variable} ${syne.variable} ${apercu.variable} ${bebas.variable} antialiased bg-dark`}>
                     <Header />
                     <main>{children}</main>
                     <Footer />
