@@ -6,11 +6,9 @@ import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 export default function Header() {
-
-	const { user } = useUser();
 
     const [isActive, setIsActive] = useState(false);
 	const [isVisible, setIsVisible] = useState(true);
@@ -57,7 +55,7 @@ export default function Header() {
 				<Link href="/">
 					<Image
 						className={`w-11 z-30`}
-						src="/logos/codify-c-black.png"
+						src={ pathname === "/code-editor" ? "/logos/codify-c-white.png" : "/logos/codify-c-black.png" }
 						width={100}
 						height={50}
 						alt="logo"
@@ -65,7 +63,7 @@ export default function Header() {
 				</Link>
 				<div className="flex gap-4 items-center">
 					<SignedOut>
-						<SignInButton mode='modal' className="px-5 py-3 text-sm rounded-full bg-white/30 backdrop-blur-sm text-white font-sora font-medium "/>
+						<SignInButton mode='modal' className="px-5 py-3 text-sm rounded-full bg-neutral-500/50 backdrop-blur-sm text-white font-sora font-medium "/>
 					</SignedOut>
 					<SignedIn>
 						<UserButton 

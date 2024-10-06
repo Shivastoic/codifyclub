@@ -24,13 +24,13 @@
 
     &::after{
         transform: rotate(45deg);
-        top: -1px;
+        top: 0px;
         background-color: black;
     }
 
     &::before{
         transform: rotate(-45deg);
-        top: 0px;
+        top: 1px;
         background-color: black;
     }
     

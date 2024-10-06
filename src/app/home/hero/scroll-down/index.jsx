@@ -1,5 +1,3 @@
-import { LuMouse } from "react-icons/lu";
-
 export default function ScrollDown(){
 
     return (
