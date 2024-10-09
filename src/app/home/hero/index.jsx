@@ -8,11 +8,11 @@ import HeroSlider from "./hero-slider"
 
 const data = {
 
-    subtitle: "Welcome to,",
-    title: "Codify club",
+    subtitle: "Codify Club,",
+    title: "Learn. Innovate. Succeed.",
     button_one_link: "/",
     button_one_text: "Lounge",
-    button_two_link: "/",
+    button_two_link: "/career",
     button_two_text: "Career",
     button_three_link: "/",
     button_three_text: "Resources",
