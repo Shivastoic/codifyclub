@@ -1,6 +1,7 @@
 import About from "./about";
 import Hero from "./hero";
 import Opportunity from "./opportunity";
+import OurApp from "./our-app";
 
 export default function HomeComponents() {
 
@@ -10,6 +11,7 @@ export default function HomeComponents() {
             <Hero />
             <About />
             <Opportunity />
+            <OurApp />
         </>
 
     );
