@@ -1,4 +1,5 @@
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
 
 // IMPORT NEXT COMPONENTS
 import Header from "@/app/components/header/index";
@@ -83,6 +84,10 @@ export default function RootLayout({ children }) {
         <ClerkProvider>
             <html lang="en">
                 <body className={`${sora.variable} ${syne.variable} ${apercu.variable} ${bebas.variable} antialiased bg-dark`}>
+                    <NextTopLoader 
+                        color="#FF885B"
+                        showSpinner={false}
+                    />
                     <Header />
                     <main>{children}</main>
                     <Footer />
