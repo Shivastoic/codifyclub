@@ -8,6 +8,7 @@ const courseCategories = [
     "Business Intelligence",
     "Video Editing",
     "Social Media",
+    "Select a category"
 ];
 
 export default function CourseSelector({ selectedCategory, onSelect }) {
@@ -52,7 +53,7 @@ export default function CourseSelector({ selectedCategory, onSelect }) {
                 
                     <div
                         className={`absolute top-full right-0 mt-2 shadow-lg bg-white border border-gray-100 rounded-lg px-2 py-2 flex flex-col gap-1 min-w-64 z-10 transition-all duration-300 overflow-hidden ${
-                            isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+                            isOpen ? "max-h-dvh opacity-100" : "max-h-0 opacity-0"
                         }`}
                     >
                         <ul className="flex flex-col gap-1">

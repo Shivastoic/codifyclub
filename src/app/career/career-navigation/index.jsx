@@ -11,28 +11,28 @@ import CourseComponents from "../courses"
 // DATA
 const data = {
 
-    button_one_text: "Roadmap",
-    button_two_text: "Courses",
+    button_one_text: "Courses",
+    button_two_text: "Roadmap",
     button_three_text: "Job Portal",
 
 }
 
 export default function CareerNavigation() {
 
-    const [activeLink, setActiveLink] = useState("Roadmap")
+    const [activeLink, setActiveLink] = useState("Courses")
 
     const renderComponent = () => {
 
         switch (activeLink) {
 
-            case "Roadmap":
-                return <RoadmapComponents />
             case "Courses":
                 return <CourseComponents />
+            case "Roadmap":
+                return <RoadmapComponents />
             case "Job Portal":
                 return <JobPortalComponents />
             default:
-                return <RoadmapComponents />
+                return <CourseComponents />
 
         }
 
@@ -44,32 +44,30 @@ export default function CareerNavigation() {
             <div className="flex items-center justify-center md:justify-normal gap-2 md:gap-4">
                 {
                 
-                    activeLink === "Roadmap" ? (
-                        <DotButtonDark onClick={() => setActiveLink("Roadmap")}>
-                            {data.button_one_text}
-                        </DotButtonDark>
-                    ) : (
-                        <DotButton onClick={() => setActiveLink("Roadmap")}>
-                            {data.button_one_text}
-                        </DotButton>
-                    )
-                
-                }
-
-                {
-                
                     activeLink === "Courses" ? (
                         <DotButtonDark onClick={() => setActiveLink("Courses")}>
-                            {data.button_two_text}
+                            {data.button_one_text}
                         </DotButtonDark>
                     ) : (
                         <DotButton onClick={() => setActiveLink("Courses")}>
+                            {data.button_one_text}
+                        </DotButton>
+                    )
+                
+                }
+                {
+                
+                    activeLink === "Roadmap" ? (
+                        <DotButtonDark onClick={() => setActiveLink("Roadmap")}>
+                            {data.button_two_text}
+                        </DotButtonDark>
+                    ) : (
+                        <DotButton onClick={() => setActiveLink("Roadmap")}>
                             {data.button_two_text}
                         </DotButton>
                     )
                 
                 }
-
                 {
                 
                     activeLink === "Job Portal" ? (
@@ -84,8 +82,7 @@ export default function CareerNavigation() {
                 
                 }
             </div>
-
-            <div className="rounded-xl bg-light h-dvh p-4">
+            <div className="rounded-xl bg-neutral-100 min-h-dvh p-4">
                 { renderComponent() }
             </div>
         </div>
