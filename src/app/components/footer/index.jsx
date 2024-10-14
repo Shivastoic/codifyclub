@@ -17,7 +17,7 @@ export default function Footer(){
                             </div>
                         </div>
                     </Container>
-                    <h2 className="absolute bottom-0 left-0 text-5xl lg:text-[180px] font-syne font-bold tracking-tighter uppercase">Codify.</h2>
+                    <h2 className="absolute bottom-0 left-0 text-5xl lg:text-[180px] font-syne font-bold uppercase">Codify.</h2>
                 </div>
             </div>
         </footer>
