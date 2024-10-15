@@ -10,11 +10,11 @@ const data = {
 
     subtitle: "Codify Club,",
     title: "Learn. Innovate. Succeed.",
-    button_one_link: "/",
+    button_one_link: "/lounge",
     button_one_text: "Lounge",
     button_two_link: "/career",
     button_two_text: "Career",
-    button_three_link: "/",
+    button_three_link: "/resources",
     button_three_text: "Resources",
 
 }

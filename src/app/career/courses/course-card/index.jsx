@@ -9,7 +9,7 @@ export default function CourseCard({ title, src, auther, price, discount_price, 
 
     return (
 
-        <div className="bg-neutral-200 rounded-xl p-2 flex flex-col gap-4">
+        <div className="bg-white shadow-md rounded-xl p-2 flex flex-col gap-4">
             <div className="aspect-video overflow-hidden w-full rounded-lg">
                 <Image 
                     src={ src }
