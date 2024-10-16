@@ -1,5 +1,5 @@
 import { useState } from "react"
-import RoadmapSelector from "./roadmap-selector"
+import CategorySelector from "@/app/components/category-selector"
 import { roadmap_data } from "./roadmapData"
 import Image from "next/image"
 
@@ -15,6 +15,15 @@ export default function RoadmapComponents() {
     const [selectedRoadmapCategory, setSelectedRoadmapCategory] = useState("Frontend Web Development")
     const [imageLoaded, setImageLoaded] = useState(false)
 
+    const roadmapCategories = [
+        "Frontend Web Development",
+        "Backend Web Development",
+        "Full Stack Development",
+        "AI / Data Scientist",
+        "Android App Development",
+        "IOS App Development",
+    ];
+
     const selectedRoadmap = roadmap_data.find((roadmap) => roadmap.category === selectedRoadmapCategory)
 
     const handleImageLoad = () => {
@@ -26,7 +35,8 @@ export default function RoadmapComponents() {
     return (
 
         <section className="space-y-6">
-            <RoadmapSelector
+            <CategorySelector
+                categories={ roadmapCategories }
                 selectedCategory={selectedRoadmapCategory}
                 onSelect={(category) => {
 

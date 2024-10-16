@@ -1,16 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 
-const courseCategories = [
-    "Frontend Web Development",
-    "Backend Web Development",
-    "Full Stack Development",
-    "AI / Data Scientist",
-    "Android App Development",
-    "IOS App Development",
-];
-
-export default function RoadmapSelector({ selectedCategory, onSelect }) {
+export default function CategorySelector({ categories, selectedCategory, onSelect }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -57,7 +48,7 @@ export default function RoadmapSelector({ selectedCategory, onSelect }) {
                     >
                         <ul className="flex flex-col gap-1">
                             {
-                                courseCategories.map((category) => (
+                                categories.map((category) => (
 
                                     <li
                                         key={category}

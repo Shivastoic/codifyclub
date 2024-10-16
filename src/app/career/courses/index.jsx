@@ -1,5 +1,5 @@
 import { useState } from "react"
-import CourseSelector from "./course-selector"
+import CategorySelector from "@/app/components/category-selector"
 
 // IMPORT COURSE DATA
 import { course_data } from "./courseData"
@@ -9,6 +9,16 @@ export default function CourseComponents(){
 
     const [selectedCategory, setSelectedCategory] = useState("Select a category")
 
+    const courseCategories = [
+        "Web Development",
+        "Artificial Intelligence",
+        "App Development",
+        "Business Intelligence",
+        "Video Editing",
+        "Social Media",
+        "Select a category"
+    ];
+
     // Filter the data based on the selected category
     const filteredCourses = selectedCategory === "Select a category"
         ? course_data
@@ -17,7 +27,8 @@ export default function CourseComponents(){
     return (
 
         <section className="space-y-6">
-            <CourseSelector 
+            <CategorySelector 
+                categories={ courseCategories }
                 selectedCategory={selectedCategory}
                 onSelect={(category) => setSelectedCategory(category)}
             />

@@ -21,16 +21,16 @@ const data = {
 
 export default function CareerNavigation() {
 
-    const [activeLink, setActiveLink] = useState("Courses")
+    const [activeLink, setActiveLink] = useState("Roadmap")
 
     const renderComponent = () => {
 
         switch (activeLink) {
 
-            case "Courses":
-                return <CourseComponents />
             case "Roadmap":
                 return <RoadmapComponents />
+            case "Courses": 
+                return <CourseComponents />
             case "Interview Q&A":
                 return <InterviewQAComponents />
             case "Job Portal":
@@ -47,6 +47,19 @@ export default function CareerNavigation() {
         <div className="space-y-6">
             <div className="flex items-center justify-center md:justify-normal gap-2 md:gap-4">
                 {
+                    
+                    activeLink === "Roadmap" ? (
+                        <DotButtonDark onClick={() => setActiveLink("Roadmap")}>
+                            {data.button_two_text}
+                        </DotButtonDark>
+                    ) : (
+                        <DotButton onClick={() => setActiveLink("Roadmap")}>
+                            {data.button_two_text}
+                        </DotButton>
+                    )
+                
+                }
+                {
                 
                     activeLink === "Courses" ? (
                         <DotButtonDark onClick={() => setActiveLink("Courses")}>
@@ -55,19 +68,6 @@ export default function CareerNavigation() {
                     ) : (
                         <DotButton onClick={() => setActiveLink("Courses")}>
                             {data.button_one_text}
-                        </DotButton>
-                    )
-                
-                }
-                {
-                
-                    activeLink === "Roadmap" ? (
-                        <DotButtonDark onClick={() => setActiveLink("Roadmap")}>
-                            {data.button_two_text}
-                        </DotButtonDark>
-                    ) : (
-                        <DotButton onClick={() => setActiveLink("Roadmap")}>
-                            {data.button_two_text}
                         </DotButton>
                     )
                 
