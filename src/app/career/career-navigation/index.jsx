@@ -8,14 +8,18 @@ import JobPortalComponents from "../job-portal"
 import RoadmapComponents from "../roadmap"
 import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
+import ResumeComponents from "../resume"
+import LiveInterviewComponents from "../live-interview"
 
 // DATA
 const data = {
 
-    button_one_text: "Courses",
     button_two_text: "Roadmap",
-    button_three_text: "Job Portal",
+    button_one_text: "Courses",
+    button_five_text: "Resume",
     button_four_text: "Interview Q&A",
+    button_six_text: "Live Interview",
+    button_three_text: "Job Portal",
 
 }
 
@@ -31,12 +35,16 @@ export default function CareerNavigation() {
                 return <RoadmapComponents />
             case "Courses": 
                 return <CourseComponents />
+            case "Resume": 
+                return <ResumeComponents />
             case "Interview Q&A":
                 return <InterviewQAComponents />
+            case "Live Interview":
+                return <LiveInterviewComponents />
             case "Job Portal":
                 return <JobPortalComponents />
             default:
-                return <CourseComponents />
+                return <RoadmapComponents />
 
         }
 
@@ -74,6 +82,19 @@ export default function CareerNavigation() {
                 }
                 {
                 
+                    activeLink === "Resume" ? (
+                        <DotButtonDark onClick={() => setActiveLink("Resume")}>
+                            {data.button_five_text}
+                        </DotButtonDark>
+                    ) : (
+                        <DotButton onClick={() => setActiveLink("Resume")}>
+                            {data.button_five_text}
+                        </DotButton>
+                    )
+                
+                }
+                {
+                
                     activeLink === "Interview Q&A" ? (
                         <DotButtonDark onClick={() => setActiveLink("Interview Q&A")}>
                             {data.button_four_text}
@@ -81,6 +102,19 @@ export default function CareerNavigation() {
                     ) : (
                         <DotButton onClick={() => setActiveLink("Interview Q&A")}>
                             {data.button_four_text}
+                        </DotButton>
+                    )
+                
+                }
+                {
+                
+                    activeLink === "Live Interview" ? (
+                        <DotButtonDark onClick={() => setActiveLink("Live Interview")}>
+                            {data.button_six_text}
+                        </DotButtonDark>
+                    ) : (
+                        <DotButton onClick={() => setActiveLink("Live Interview")}>
+                            {data.button_six_text}
                         </DotButton>
                     )
                 

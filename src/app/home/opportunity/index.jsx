@@ -12,6 +12,41 @@ const data = {
 
 }
 
+const cards = [
+
+    {
+
+        link: "/career",
+        src: "/images/hero-cards/career.png",
+
+    },
+    {
+
+        link: "/resource",
+        src: "/images/hero-cards/resources.png",
+
+    },
+    {
+
+        link: "/code-editor",
+        src: "/images/hero-cards/code-editor.png",
+
+    },
+    {
+
+        link: "/founders",
+        src: "/images/hero-cards/founders.png",
+
+    },
+    {
+
+        link: "/",
+        src: "/images/hero-cards/events.png",
+
+    },
+
+]
+
 export default function Opportunity(){
 
     return (
@@ -34,14 +69,27 @@ export default function Opportunity(){
                         alt="ball"
                         width={200}
                         height={200}
-                        className="size-28 sm:size-40 lg:size-52 absolute top-52 md:top-24 left-0 animate-bounceUpDown"  
+                        className="size-28 sm:size-40 lg:size-52 absolute top-52 md:top-24 left-0 animate-bounceUpDown z-20"  
                     />
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-dvh w-full">
-                        <div className="w-full h-full rounded-xl bg-white/5 lg:col-span-2 row-span-2"></div>
-                        <div className="w-full h-full rounded-xl bg-white/5"></div>
-                        <div className="w-full h-full rounded-xl bg-white/5"></div>
-                        <div className="w-full h-full rounded-xl bg-white/5"></div>
-                        <div className="w-full h-full rounded-xl bg-white/5 lg:col-span-2"></div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full h-dvh">
+                        {
+
+                            cards.map( ( data, index ) => (
+                                
+                                <div className={`w-full h-full rounded-xl overflow-hidden bg-white/5 group ${index === 0 ? "lg:col-span-2 lg:row-span-2" : ""} ${index === cards.length - 1 ? "lg:col-span-2" : ""}`}>
+                                    <Link key={ index } href={ data.link }>
+                                        <Image 
+                                            src={ data.src }
+                                            width={ 1920 }
+                                            height={ 1080 }
+                                            className="object-cover w-full h-full opacity-85 group-hover:opacity-100 group-hover:scale-105 duration-300 ease-in-out"
+                                        />
+                                    </Link>
+                                </div>
+
+                            ))
+
+                        }
                     </div>
                     <div className="flex items-center justify-center md:pt-8">
                         <Link href="">
