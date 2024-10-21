@@ -10,28 +10,28 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 // Load Sora font
 const sora = localFont({
-    src: '/fonts/Sora-Variablefont_wght.ttf',
+    src: '../../public/fonts/Sora-Variablefont_wght.ttf',
     variable: '--font-sora',
     display: 'swap',
 });
 
 // Load Syne font
 const syne = localFont({
-    src: '/fonts/Syne-Variablefont_wght.ttf',
+    src: '../../public/fonts/Syne-Variablefont_wght.ttf',
     variable: '--font-syne',
     display: 'swap',
 });
 
 // Load apercu font
 const apercu = localFont({
-    src: '/fonts/Apercu-Medium.otf',
+    src: '../../public/fonts/Apercu-Medium.otf',
     variable: '--font-apercu',
     display: 'swap',
 });
 
 // Load Syne font
 const bebas = localFont({
-    src: '/fonts/BebasNeue-Regular.ttf',
+    src: '../../public/fonts/BebasNeue-Regular.ttf',
     variable: '--font-bebas',
     display: 'swap',
 });
