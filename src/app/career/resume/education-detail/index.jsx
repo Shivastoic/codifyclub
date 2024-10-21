@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const EducationDetails = (props) => {
     const { resumeInfo, setResumeInfo, setPage } = props;
@@ -30,7 +30,7 @@ const EducationDetails = (props) => {
         { label: "Additional Details:", placeholder: "e.g. Level 1 or React or Data Science", type: "text", key: "details" },
     ];
 
-    const saveEducationData = () => {
+    const saveEducationData = useCallback(() => {
         const isEmpty = Object.values(educationData).some((x) => x === "");
         if (isEmpty) return;
 
@@ -42,9 +42,9 @@ const EducationDetails = (props) => {
             education: resumeInfo.education.concat(educationData),
         };
         setResumeInfo(updateValue);
-    };
+    }, [educationData, resumeInfo, setResumeInfo]);
 
-    const saveCertificateData = () => {
+    const saveCertificateData = useCallback(() => {
         const isEmpty = Object.values(certificateData).some((x) => x.trim() === "");
         if (isEmpty) return;
 
@@ -56,15 +56,15 @@ const EducationDetails = (props) => {
             certification: resumeInfo.certification.concat(certificateData),
         };
         setResumeInfo(updateValue);
-    };
+    }, [certificateData, resumeInfo, setResumeInfo]);
 
     useEffect(() => {
         saveEducationData();
-    }, [educationSection.length]);
+    }, [educationSection.length, saveEducationData]);
 
     useEffect(() => {
         saveCertificateData();
-    }, [certificateSection.length]);
+    }, [certificateSection.length, saveCertificateData]);
 
     const createCertificateSection = () => {
         setCertificateSection(certificateSection.concat(
@@ -103,7 +103,7 @@ const EducationDetails = (props) => {
                             setEducationData((prev) => ({ ...prev, [field.key]: e.target.value }));
                         }}
                     />
-                    {field.key === "endDate" && <small className="text-gray-500">Write "present" if ongoing</small>}
+                    {field.key === "endDate" && <small className="text-gray-500">Write &quot;present&quot; if ongoing</small>}
                 </div>
             ))}
         </div>
@@ -129,25 +129,24 @@ const EducationDetails = (props) => {
 
             {educationSection}
             {certificateSection}
-			
-			<div className="flex items-center gap-4">
-				<button
-					className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
-					onClick={createEducationSection}
-				>
-					Add Education
-				</button>
-				<button
-					className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
-					onClick={() => {
-						saveEducationData();
-						createCertificateSection();
-					}}
-				>
-					Add Certificates
-				</button>
-			</div>
-            
+
+            <div className="flex items-center gap-4">
+                <button
+                    className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
+                    onClick={createEducationSection}
+                >
+                    Add Education
+                </button>
+                <button
+                    className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
+                    onClick={() => {
+                        saveEducationData();
+                        createCertificateSection();
+                    }}
+                >
+                    Add Certificates
+                </button>
+            </div>
 
             <div className="flex justify-center space-x-4 mt-6">
                 <button

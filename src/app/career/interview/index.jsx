@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import CategorySelector from "@/app/components/category-selector"
 import QAAccordion from "./qa-accordion"
 import PrimaryButtonDark from "@/app/components/buttons/primary/primary-dark"
@@ -7,15 +7,12 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 
 // DATA
 const data = {
-
     button_text: "Refresh",
-
 }
 
 // Function to evaluate the response
 const evaluateResponse = async (question, answer) => {
-
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY // Use the correct env variable
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY
     const genAI = new GoogleGenerativeAI(apiKey)
   
     const model = genAI.getGenerativeModel({
@@ -44,17 +41,15 @@ const evaluateResponse = async (question, answer) => {
         )
     
         const rating = parseFloat(result.response.text().trim())
-        return rating // Return the rating
+        return rating
     } catch (error) {
         console.error("Error evaluating response with Gemini API", error)
         throw error
     }
-
 }
 
 // Function to fetch interview questions from Gemini API
 const fetchQuestionsFromGemini = async (selectedCategory) => {
-
     const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY
     const genAI = new GoogleGenerativeAI(apiKey)
 
@@ -71,7 +66,6 @@ const fetchQuestionsFromGemini = async (selectedCategory) => {
     }
 
     try {
-
         const chatSession = model.startChat({
             generationConfig,
             history: [],
@@ -81,18 +75,14 @@ const fetchQuestionsFromGemini = async (selectedCategory) => {
             `Create exactly 6 short interview questions on ${selectedCategory} and return the response without any heading or explanation, direct questions line by line`
         )
         
-        return result.response.text() // Return the generated questions
-
-    } 
-    catch (error) {
+        return result.response.text()
+    } catch (error) {
         console.error("Error fetching questions from Gemini API", error)
         throw error
     }
-
 }
 
 export default function InterviewQAComponents() {
-
     const [selectedQuestionCategory, setSelectedQuestionCategory] = useState("Python")
     const [questions, setQuestions] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -105,42 +95,31 @@ export default function InterviewQAComponents() {
         "Backend Web Development",
     ]
 
-    // Fetch questions using Gemini API on category change or refresh button click
-    const fetchQuestions = async () => {
-
+    // Fetch questions using Gemini API
+    const fetchQuestions = useCallback(async () => {
         setIsLoading(true)
         setError(null)
 
         try {
-
             const questionsText = await fetchQuestionsFromGemini(selectedQuestionCategory)
-            // Assuming questions are in plain text, split by newlines or some delimiter
-            const parsedQuestions = questionsText.split("\n").filter(q => q) // Parse questions into an array
+            const parsedQuestions = questionsText.split("\n").filter(q => q)
             setQuestions(parsedQuestions)
-
-        } 
-        catch (error) {
-
+        } catch (error) {
             setError("Failed to load questions.")
-
-        } 
-        finally {
-
+        } finally {
             setIsLoading(false)
-
         }
-
-    }
+    }, [selectedQuestionCategory])
 
     // Handle answer submission and evaluation
     const handleAnswerSubmit = async (question, answer) => {
-        if (!answer.trim()) return // Ignore empty answers
+        if (!answer.trim()) return
 
         try {
-            const rating = await evaluateResponse(question, answer) // Evaluate answer
+            const rating = await evaluateResponse(question, answer)
             setRatings((prevRatings) => ({
                 ...prevRatings,
-                [question]: rating, // Store rating for the question
+                [question]: rating,
             }))
         } catch (err) {
             setError("Failed to evaluate the response.")
@@ -149,20 +128,15 @@ export default function InterviewQAComponents() {
 
     // Fetch questions initially
     useEffect(() => {
-
         fetchQuestions()
-
-    }, [selectedQuestionCategory])
+    }, [fetchQuestions])
 
     // Handle refresh button click
     const handleRefresh = () => {
-
         fetchQuestions()
-
     }
 
     return (
-
         <section className="space-y-6">
             <CategorySelector 
                 categories={questionsCategories}
@@ -170,32 +144,20 @@ export default function InterviewQAComponents() {
                 onSelect={(category) => setSelectedQuestionCategory(category)}
             />
             <div className="flex flex-col px-4 rounded-xl bg-white h-full w-full">
-                {
-                
-                    isLoading ? (
-
-                        <p>Loading questions...</p>
-
-                    ) : error ? (
-
-                        <p className="text-red-500">{error}</p>
-
-                    ) : (
-
-                        questions.map(( question, index ) => (
-
-                            <QAAccordion 
-                                key={index} 
-                                title={question} 
-                                onSubmit={ (answer) => handleAnswerSubmit(question, answer) }
-                                rating={ ratings[question] }
-                            />
-
-                        ))
-
-                    )
-                
-                }
+                {isLoading ? (
+                    <p>Loading questions...</p>
+                ) : error ? (
+                    <p className="text-red-500">{error}</p>
+                ) : (
+                    questions.map((question, index) => (
+                        <QAAccordion 
+                            key={index} 
+                            title={question} 
+                            onSubmit={(answer) => handleAnswerSubmit(question, answer)}
+                            rating={ratings[question]}
+                        />
+                    ))
+                )}
             </div>
             <div className="flex justify-center">
                 <PrimaryButtonDark onClick={handleRefresh} disabled={isLoading}>
@@ -204,7 +166,5 @@ export default function InterviewQAComponents() {
                 </PrimaryButtonDark>
             </div>
         </section>
-
     )
-
 }
