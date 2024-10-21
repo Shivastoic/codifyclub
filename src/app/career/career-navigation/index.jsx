@@ -39,10 +39,10 @@ export default function CareerNavigation() {
                 return <ResumeComponents />
             case "Interview Q&A":
                 return <InterviewQAComponents />
-            case "Live Interview":
-                return <LiveInterviewComponents />
-            case "Job Portal":
-                return <JobPortalComponents />
+            // case "Live Interview":
+            //     return <LiveInterviewComponents />
+            // case "Job Portal":
+            //     return <JobPortalComponents />
             default:
                 return <RoadmapComponents />
 
@@ -53,7 +53,7 @@ export default function CareerNavigation() {
     return (
 
         <div className="space-y-6">
-            <div className="flex items-center justify-center md:justify-normal gap-2 md:gap-4">
+            <div className="flex items-center justify-center flex-wrap md:justify-normal gap-2 md:gap-4">
                 {
                     
                     activeLink === "Roadmap" ? (
@@ -106,7 +106,7 @@ export default function CareerNavigation() {
                     )
                 
                 }
-                {
+                {/* {
                 
                     activeLink === "Live Interview" ? (
                         <DotButtonDark onClick={() => setActiveLink("Live Interview")}>
@@ -118,8 +118,8 @@ export default function CareerNavigation() {
                         </DotButton>
                     )
                 
-                }
-                {
+                } */}
+                {/* {
                 
                     activeLink === "Job Portal" ? (
                         <DotButtonDark onClick={() => setActiveLink("Job Portal")}>
@@ -131,7 +131,7 @@ export default function CareerNavigation() {
                         </DotButton>
                     )
                 
-                }
+                } */}
             </div>
             <div className="rounded-xl bg-neutral-100 min-h-dvh p-4">
                 { renderComponent() }

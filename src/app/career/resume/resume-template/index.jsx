@@ -8,12 +8,15 @@ const ResumeTemplate = (props) => {
 
 	const handlePrint = useReactToPrint({
 
-		content: () => contentRef.current,
+		content: () => {
+			console.log(contentRef.current); // Check if contentRef is correctly assigned
+			return contentRef.current;
+		},
 
 	})
 
 	return (
-		<>
+		<div>
 			<div className="space-y-4" ref={contentRef}>
 				<div className="space-y-1 text-center">
 					<h1 className="text-4xl font-bold">
@@ -181,7 +184,7 @@ const ResumeTemplate = (props) => {
 					Print this out!
 				</button>
 			</div>
-		</>
+		</div>
 
 	)
 
