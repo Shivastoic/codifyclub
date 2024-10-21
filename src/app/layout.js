@@ -39,18 +39,18 @@ const bebas = localFont({
 // Metadata for SEO
 export const metadata = {
 
-    title: "Codify-Club",
+    title: "Codify Club",
     description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
     keywords: "coding club, programming, student coding, coding education, learn to code, coding workshops, software development, computer science, coding tutorials, tech community, student projects, coding resources, programming languages, hackathons, coding bootcamp, student support",
     authors: { name: "Shiva" },
     openGraph: {
 
-        title: "Codify-Club",
+        title: "Codify Club",
         description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
-        url: "https://yourdomain.com",
+        url: "https://codifyclub.vercel.app",
         images: [
             {
-                url: "https://yourdomain.com/og-image.jpg",
+                url: "https://codifyclub.vercel.app/og-image.jpg",
                 width: 800,
                 height: 600,
                 alt: "Og Image Alt",
@@ -61,9 +61,9 @@ export const metadata = {
     twitter: {
 
         card: "summary_large_image",
-        title: "Codify-Club",
+        title: "Codify Club",
         description: "Welcome to Codify Club — where opportunity meets innovation! We're a community of passionate coders, creators, and problem-solvers.",
-        images: ["https://yourdomain.com/twitter-image.jpg"],
+        images: ["https://codifyclub.vercel.app/twitter-image.jpg"],
 
     },
     icons: {
