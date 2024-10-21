@@ -13,7 +13,7 @@ const data = {
     curv2: "/images/curve-2.svg",
     button_text: "Download",
     button_link: "/",
-    app_img: "/images/app-1.png",
+    app_img: "/images/app-2.png",
 
 }
 
