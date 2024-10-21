@@ -10,14 +10,14 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 // Load Sora font
 const sora = localFont({
-    src: '/fonts/sora-variablefont_wght.ttf',
+    src: '/fonts/sora-variablefont.ttf',
     variable: '--font-sora',
     display: 'swap',
 });
 
 // Load Syne font
 const syne = localFont({
-    src: '/fonts/syne-variablefont_wght.ttf',
+    src: '/fonts/syne-variablefont.ttf',
     variable: '--font-syne',
     display: 'swap',
 });
