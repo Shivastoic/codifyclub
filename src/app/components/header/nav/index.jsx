@@ -28,6 +28,10 @@ const navItems = [
 		href: "/career",
 	},
 	{
+		title: "Guide Barter",
+		href: "https://codifyguidebarter.netlify.app",
+	},
+	{
 		title: "Founders",
 		href: "/founders",
 	},
