@@ -12,6 +12,7 @@ import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
 import ResumeComponents from "../resume"
 import LiveInterviewComponents from "../live-interview"
+import MoralSupport from "../moral-support"
 
 // DATA
 const data = {
@@ -21,6 +22,7 @@ const data = {
     button_five_text: "Resume",
     button_four_text: "Interview Q&A",
     button_six_text: "Live Interview",
+    button_seven_text: "Moral Support",
     button_three_text: "Job Portal",
     button_three_link: "https://job-finder-henna-one.vercel.app"
 
@@ -42,6 +44,8 @@ export default function CareerNavigation() {
                 return <ResumeComponents />
             case "Interview Q&A":
                 return <InterviewQAComponents />
+            case "Moral Support":
+                return <MoralSupport />
             // case "Live Interview":
             //     return <LiveInterviewComponents />
             // case "Job Portal":
@@ -109,6 +113,19 @@ export default function CareerNavigation() {
                     )
                 
                 }
+                {
+                
+                activeLink === "Moral Support" ? (
+                    <DotButtonDark onClick={() => setActiveLink("Moral Support")}>
+                        {data.button_seven_text}
+                    </DotButtonDark>
+                ) : (
+                    <DotButton onClick={() => setActiveLink("Moral Support")}>
+                        {data.button_seven_text}
+                    </DotButton>
+                )
+            
+            }
                 {/* {
                 
                     activeLink === "Live Interview" ? (
