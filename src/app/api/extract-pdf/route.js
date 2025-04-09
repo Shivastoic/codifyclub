@@ -2,15 +2,12 @@
 import { NextResponse } from 'next/server';
 import pdf from 'pdf-parse';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// Remove the deprecated config export
+// Instead, we'll handle the file directly from the request
 
 export async function POST(request) {
   try {
-    // With the App Router, we can't use formidable directly as before
+    // With the App Router, we can get the FormData directly
     const formData = await request.formData();
     const file = formData.get('file');
     
