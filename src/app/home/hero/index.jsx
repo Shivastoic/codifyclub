@@ -8,10 +8,10 @@ import HeroSlider from "./hero-slider"
 
 const data = {
 
-    subtitle: "Codify Club,",
+    subtitle: "Codify Club",
     title: "Learn. Innovate. Succeed.",
-    button_one_link: "/lounge",
-    button_one_text: "Lounge",
+    button_one_link: "/code-editor",
+    button_one_text: "Code Editor",
     button_two_link: "/career",
     button_two_text: "Career",
     button_three_link: "/resource",
@@ -39,15 +39,15 @@ const heroList = [
 const sliderData = [
 
     {
-        src: "/images/hero-slider/slide-1.jpg",
+        src: "/images/hero-slider/slide-4.jpeg",
         alt: "Slide Image",
     },
     {
-        src: "/images/hero-slider/slide-2.jpg",
+        src: "/images/hero-slider/slide-5.jpeg",
         alt: "Slide Image",
     },
     {
-        src: "/images/hero-slider/slide-3.jpg",
+        src: "/images/hero-slider/slide-6.jpeg",
         alt: "Slide Image",
     },
 
@@ -62,17 +62,17 @@ export default function Hero(){
             <div className="absolute top-[25%] md:top-[31%] right-10 md:right-16 z-10"><ScrollDown /></div>
             <div className="pt-10 flex flex-col gap-6">
                 <div className="space-y-4 z-10">
-                    <h3 className="text-center font-sora text-xl">{ data.subtitle }</h3>
-                    <h1 className="text-5xl md:text-6xl lg:text-[140px] tracking-wide text-center text-neutral-900 font-bebas uppercase z-10">{ data.title }</h1>
+                    <h1 className="text-center font-sora text-xl">{ data.subtitle }</h1>
+                    <h2 className="text-5xl md:text-6xl lg:text-[140px] tracking-wide text-center font-bebas uppercase z-10 masked-text">{ data.title }</h2>
                     <div className="flex items-center justify-center gap-2 md:gap-4">
                         <Link href={ data.button_one_link }>
                             <DotButton>{ data.button_one_text }</DotButton>
                         </Link>
-                        <Link href={ data.button_two_link }>
-                            <DotButton>{ data.button_two_text }</DotButton>
-                        </Link>
                         <Link href={ data.button_three_link }>
-                            <DotButtonDark>{ data.button_three_text }</DotButtonDark>
+                            <DotButton>{ data.button_three_text }</DotButton>
+                        </Link>
+                        <Link href={ data.button_two_link }>
+                            <DotButtonDark>{ data.button_two_text }</DotButtonDark>
                         </Link>
                     </div>
                 </div>
