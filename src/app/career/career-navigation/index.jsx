@@ -3,14 +3,18 @@
 import { useState } from "react"
 import DotButton from "@/app/components/buttons/dot-button"
 import DotButtonDark from "@/app/components/buttons/dot-button-dark"
+import Link from "next/link"
+import { FiArrowUpRight } from "react-icons/fi"
 
 // import JobPortalComponents from "../job-portal"
 import RoadmapComponents from "../roadmap"
 import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
 import ResumeComponents from "../resume"
+
 // import LiveInterviewComponents from "../live-interview"
 import ResumeAnalyzer from "../resume-analyzer"
+
 
 // DATA
 const data = {
@@ -20,6 +24,7 @@ const data = {
     button_five_text: "Resume",
     button_four_text: "Interview Q&A",
     button_six_text: "Live Interview",
+    button_seven_text: "Moral Support",
     button_three_text: "Job Portal",
     button_seven_text: "Resume Analyzer",
 
@@ -43,6 +48,8 @@ export default function CareerNavigation() {
                 return <ResumeAnalyzer />
             case "Interview Q&A":
                 return <InterviewQAComponents />
+            case "Moral Support":
+                return <MoralSupport />
             // case "Live Interview":
             //     return <LiveInterviewComponents />
             // case "Job Portal":
@@ -123,6 +130,19 @@ export default function CareerNavigation() {
                     )
                 
                 }
+                {
+                
+                activeLink === "Moral Support" ? (
+                    <DotButtonDark onClick={() => setActiveLink("Moral Support")}>
+                        {data.button_seven_text}
+                    </DotButtonDark>
+                ) : (
+                    <DotButton onClick={() => setActiveLink("Moral Support")}>
+                        {data.button_seven_text}
+                    </DotButton>
+                )
+            
+            }
                 {/* {
                 
                     activeLink === "Live Interview" ? (
@@ -149,6 +169,12 @@ export default function CareerNavigation() {
                     )
                 
                 } */}
+                <Link href={ data.button_three_link }>
+                    <DotButton>
+                        { data.button_three_text }
+                        <span className=""><FiArrowUpRight /></span>
+                    </DotButton>
+                </Link>
             </div>
             <div className="rounded-xl bg-neutral-100 min-h-dvh p-4">
                 { renderComponent() }
