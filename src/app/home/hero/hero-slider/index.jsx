@@ -38,7 +38,7 @@ export default function HeroSlider({ sliderData }){
                                     alt={item.alt}
                                     width={1000}
                                     height={1000}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover rounded-xl"
                                 />
                             </div>
                         </SwiperSlide>

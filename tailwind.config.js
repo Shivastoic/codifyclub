@@ -10,7 +10,7 @@ module.exports = {
 			colors: {
 				"dark": "#0E0D15",
 				"light": "#ededed",
-				"accent": "#FF885B",
+				"accent": "#8B5DFF",
 			},
 			transitionTimingFunction: {
 				'custom-bezier': 'cubic-bezier(0.76, 0, 0.24, 1)',
