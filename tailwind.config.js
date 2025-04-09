@@ -16,6 +16,10 @@ module.exports = {
 				'custom-bezier': 'cubic-bezier(0.76, 0, 0.24, 1)',
 			},
 			keyframes: {
+				fadeIn: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
 				bounceUpDown: {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
@@ -23,6 +27,7 @@ module.exports = {
 			},
 			animation: {
 				bounceUpDown: 'bounceUpDown 2s ease-in-out infinite',
+				fadeIn: 'fadeIn 0.3s ease-in-out',
 			},
 			fontFamily: {
 				sora: ['var(--font-sora)', 'sans-serif'],
