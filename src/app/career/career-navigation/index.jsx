@@ -4,12 +4,12 @@ import { useState } from "react"
 import DotButton from "@/app/components/buttons/dot-button"
 import DotButtonDark from "@/app/components/buttons/dot-button-dark"
 
-import JobPortalComponents from "../job-portal"
+// import JobPortalComponents from "../job-portal"
 import RoadmapComponents from "../roadmap"
 import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
 import ResumeComponents from "../resume"
-import LiveInterviewComponents from "../live-interview"
+// import LiveInterviewComponents from "../live-interview"
 import ResumeAnalyzer from "../resume-analyzer"
 
 // DATA
