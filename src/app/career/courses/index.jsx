@@ -113,7 +113,7 @@ export default function CourseComponents() {
                             </div>
                             
                             <div className="mb-6">
-                                <h2 className="text-xl font-bold mb-2">What you'll learn</h2>
+                                <h2 className="text-xl font-bold mb-2">What you&apos;ll learn</h2>
                                 <ul className="list-disc pl-6 text-gray-700">
                                     {selectedCourse.learningPoints ? 
                                         selectedCourse.learningPoints.map((point, index) => (
