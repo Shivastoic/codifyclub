@@ -10,6 +10,7 @@ import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
 import ResumeComponents from "../resume"
 import LiveInterviewComponents from "../live-interview"
+import ResumeAnalyzer from "../resume-analyzer"
 
 // DATA
 const data = {
@@ -20,6 +21,7 @@ const data = {
     button_four_text: "Interview Q&A",
     button_six_text: "Live Interview",
     button_three_text: "Job Portal",
+    button_seven_text: "Resume Analyzer",
 
 }
 
@@ -37,6 +39,8 @@ export default function CareerNavigation() {
                 return <CourseComponents />
             case "Resume": 
                 return <ResumeComponents />
+            case "Resume Analyzer": 
+                return <ResumeAnalyzer />
             case "Interview Q&A":
                 return <InterviewQAComponents />
             // case "Live Interview":
@@ -89,6 +93,19 @@ export default function CareerNavigation() {
                     ) : (
                         <DotButton onClick={() => setActiveLink("Resume")}>
                             {data.button_five_text}
+                        </DotButton>
+                    )
+                
+                }
+                {
+                
+                    activeLink === "Resume Analyzer" ? (
+                        <DotButtonDark onClick={() => setActiveLink("Resume Analyzer")}>
+                            {data.button_seven_text}
+                        </DotButtonDark>
+                    ) : (
+                        <DotButton onClick={() => setActiveLink("Resume Analyzer")}>
+                            {data.button_seven_text}
                         </DotButton>
                     )
                 
