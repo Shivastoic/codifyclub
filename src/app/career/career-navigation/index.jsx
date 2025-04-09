@@ -6,13 +6,11 @@ import DotButtonDark from "@/app/components/buttons/dot-button-dark"
 import Link from "next/link"
 import { FiArrowUpRight } from "react-icons/fi"
 
-// import JobPortalComponents from "../job-portal"
 import RoadmapComponents from "../roadmap"
 import CourseComponents from "../courses"
 import InterviewQAComponents from "../interview"
 import ResumeComponents from "../resume"
 
-// import LiveInterviewComponents from "../live-interview"
 import ResumeAnalyzer from "../resume-analyzer"
 
 
@@ -23,9 +21,6 @@ const data = {
     button_one_text: "Courses",
     button_five_text: "Resume",
     button_four_text: "Interview Q&A",
-    button_six_text: "Live Interview",
-    button_seven_text: "Moral Support",
-    button_three_text: "Job Portal",
     button_seven_text: "Resume Analyzer",
 
 }
@@ -48,12 +43,6 @@ export default function CareerNavigation() {
                 return <ResumeAnalyzer />
             case "Interview Q&A":
                 return <InterviewQAComponents />
-            // case "Moral Support":
-            //     return <MoralSupport />
-            // case "Live Interview":
-            //     return <LiveInterviewComponents />
-            // case "Job Portal":
-            //     return <JobPortalComponents />
             default:
                 return <RoadmapComponents />
 
