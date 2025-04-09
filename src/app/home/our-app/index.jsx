@@ -40,6 +40,7 @@ export default function OurApp(){
                             </div>
                             <Image 
                                 src={ data.curv1 }
+                                alt=""
                                 width={ 500 }
                                 height={ 500 }
                                 className="hidden lg:block w-[80%] pb-7"
@@ -50,12 +51,14 @@ export default function OurApp(){
                     <div className="relative px-16">
                         <Image 
                             src={ data.app_img }
+                            alt=""
                             width={ 1000 }
                             height={ 1000 }
                             className="max-w-[300px]"
                         />
                         <Image 
                             src={ data.curv2 }
+                            alt=""
                             width={ 500 }
                             height={ 500 }
                             className="hidden lg:block absolute bottom-0 -right-20 max-w-80 pb-7"

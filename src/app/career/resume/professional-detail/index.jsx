@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const ProfessionalDetails = (props) => {
     const { resumeInfo, setResumeInfo, setPage } = props;
 
-    const [workSection, setWorkSection] = React.useState([]);
+    const [workSection, setWorkSection] = useState([]);
 
-    const [workData, setWorkData] = React.useState({
+    const [workData, setWorkData] = useState({
         jobTitle: "",
         company: "",
         startDate: "",
@@ -13,7 +13,44 @@ const ProfessionalDetails = (props) => {
         jobDetails: "",
     });
 
-    const saveData = () => {
+    const workFields = [
+        { label: "Job Title:", placeholder: "Software developer", field: "jobTitle" },
+        { label: "Company/Employer:", placeholder: "Employer(Company) name", field: "company" },
+        { label: "Start date:", placeholder: "Enter start date jan 2022", field: "startDate" },
+        { label: "End date:", placeholder: "Enter end date jan 2023", field: "endDate", note: "write present if ongoing" },
+    ];
+
+    const handleInputChange = (field) => (e) => {
+        setWorkData((prev) => ({ ...prev, [field]: e.target.value }));
+    };
+
+    const workExperienceForm = () => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" key={workSection.length}>
+            {workFields.map(({ label, placeholder, field, note }) => (
+                <div key={field} className="flex flex-col gap-2">
+                    <label className="block text-sm font-medium text-white">{label}</label>
+                    <input
+                        type="text"
+                        placeholder={placeholder}
+                        className="px-4 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        onChange={handleInputChange(field)}
+                    />
+                    {note && <p className="mt-2 text-sm text-gray-300">{note}</p>}
+                </div>
+            ))}
+            <div className="md:col-span-2 flex flex-col gap-2">
+                <label className="block text-sm font-medium text-white">Job Details:</label>
+                <textarea
+                    placeholder="Describe your role and achievements"
+                    className="px-4 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm resize-none"
+                    onChange={handleInputChange("jobDetails")}
+                />
+                <p className="mt-2 text-sm text-gray-300">Hit enter for newline</p>
+            </div>
+        </div>
+    );
+
+    const saveData = useCallback(() => {
         const isEmpty = Object.values(workData).some((x) => x.trim() === "");
         if (isEmpty) return;
 
@@ -33,63 +70,14 @@ const ProfessionalDetails = (props) => {
             professional: updatedValue,
         };
         setResumeInfo(updateResumeInfo);
-    };
+    }, [workData, resumeInfo, setResumeInfo]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         saveData();
-    }, [workSection.length]);
+    }, [workSection.length, saveData]);
 
     const createWorkSection = () => {
         setWorkSection((prev) => prev.concat(workExperienceForm()));
-    };
-
-    const handleInputChange = (field) => (e) => {
-        setWorkData((prev) => ({ ...prev, [field]: e.target.value }));
-    };
-
-    const workFields = [
-        { label: "Job Title:", placeholder: "Software developer", field: "jobTitle" },
-        { label: "Company/Employer:", placeholder: "Employer(Company) name", field: "company" },
-        { label: "Start date:", placeholder: "Enter start date jan 2022", field: "startDate" },
-        { label: "End date:", placeholder: "Enter end date jan 2023", field: "endDate", note: "write present if ongoing" },
-    ];
-
-    const workExperienceForm = () => {
-
-        return (
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" key={workSection.length}>
-                {
-				
-					workFields.map(({ label, placeholder, field, note }) => (
-
-						<div key={field} className="flex flex-col gap-2">
-							<label className="block text-sm font-medium text-white">{ label }</label>
-							<input
-								type="text"
-								placeholder={placeholder}
-								className="px-4 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-								onChange={handleInputChange(field)}
-							/>
-							{note && <p className="mt-2 text-sm text-gray-300">{ note }</p>}
-						</div>
-
-					))
-				
-				}
-                <div className="md:col-span-2 flex flex-col gap-2">
-                    <label className="block text-sm font-medium text-white">Job Details:</label>
-                    <textarea
-                        placeholder="Describe your role and achievements"
-                        className="px-4 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm resize-none"
-                        onChange={handleInputChange("jobDetails")}
-                    />
-                    <p className="mt-2 text-sm text-gray-300">Hit enter for newline</p>
-                </div>
-            </div>
-
-        );
-
     };
 
     return (

@@ -1,7 +1,7 @@
 'use client'
 
 import CategorySelector from "@/app/components/category-selector"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { resource_data } from "@/app/resource/resourceData"
 import ResourceCard from "../resource-card"
 
@@ -74,7 +74,7 @@ export default function ResourceContainer() {
     ]
 
     // Function to filter resources based on selected categories
-    const filterResources = () => {
+    const filterResources = useCallback(() => {
 
         const filtered = resource_data.filter(resource => {
 
@@ -90,14 +90,14 @@ export default function ResourceContainer() {
         })
         setFilteredResources(filtered)
 
-    }
+    }, [selectedCourse, selectedYear, selectedSem, selectedResource])
 
     // Effect to filter resources whenever the selections change
     useEffect(() => {
 
         filterResources()
 
-    }, [selectedCourse, selectedYear, selectedSem, selectedResource])
+    }, [filterResources])
 
     return (
 

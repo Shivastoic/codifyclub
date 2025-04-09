@@ -76,10 +76,11 @@ export default function Opportunity(){
 
                             cards.map( ( data, index ) => (
                                 
-                                <div className={`w-full h-full rounded-xl overflow-hidden bg-white/5 group ${index === 0 ? "lg:col-span-2 lg:row-span-2" : ""} ${index === cards.length - 1 ? "lg:col-span-2" : ""}`}>
+                                <div key={ index } className={`w-full h-full rounded-xl overflow-hidden bg-white/5 group ${index === 0 ? "lg:col-span-2 lg:row-span-2" : ""} ${index === cards.length - 1 ? "lg:col-span-2" : ""}`}>
                                     <Link key={ index } href={ data.link }>
                                         <Image 
                                             src={ data.src }
+                                            alt=""
                                             width={ 1920 }
                                             height={ 1080 }
                                             className="object-cover w-full h-full opacity-85 group-hover:opacity-100 group-hover:scale-105 duration-300 ease-in-out"
