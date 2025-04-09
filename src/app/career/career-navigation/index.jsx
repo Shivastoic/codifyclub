@@ -119,51 +119,6 @@ export default function CareerNavigation() {
                     )
                 
                 }
-                {
-                
-                activeLink === "Moral Support" ? (
-                    <DotButtonDark onClick={() => setActiveLink("Moral Support")}>
-                        {data.button_seven_text}
-                    </DotButtonDark>
-                ) : (
-                    <DotButton onClick={() => setActiveLink("Moral Support")}>
-                        {data.button_seven_text}
-                    </DotButton>
-                )
-            
-            }
-                {/* {
-                
-                    activeLink === "Live Interview" ? (
-                        <DotButtonDark onClick={() => setActiveLink("Live Interview")}>
-                            {data.button_six_text}
-                        </DotButtonDark>
-                    ) : (
-                        <DotButton onClick={() => setActiveLink("Live Interview")}>
-                            {data.button_six_text}
-                        </DotButton>
-                    )
-                
-                } */}
-                {/* {
-                
-                    activeLink === "Job Portal" ? (
-                        <DotButtonDark onClick={() => setActiveLink("Job Portal")}>
-                            {data.button_three_text}
-                        </DotButtonDark>
-                    ) : (
-                        <DotButton onClick={() => setActiveLink("Job Portal")}>
-                            {data.button_three_text}
-                        </DotButton>
-                    )
-                
-                } */}
-                <Link href={ data.button_three_link }>
-                    <DotButton>
-                        { data.button_three_text }
-                        <span className=""><FiArrowUpRight /></span>
-                    </DotButton>
-                </Link>
             </div>
             <div className="rounded-xl bg-neutral-100 min-h-dvh p-4">
                 { renderComponent() }
