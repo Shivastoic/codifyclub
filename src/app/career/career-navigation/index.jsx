@@ -48,8 +48,8 @@ export default function CareerNavigation() {
                 return <ResumeAnalyzer />
             case "Interview Q&A":
                 return <InterviewQAComponents />
-            case "Moral Support":
-                return <MoralSupport />
+            // case "Moral Support":
+            //     return <MoralSupport />
             // case "Live Interview":
             //     return <LiveInterviewComponents />
             // case "Job Portal":
