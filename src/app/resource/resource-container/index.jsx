@@ -10,7 +10,7 @@ export default function ResourceContainer() {
     const [selectedYear, setSelectedYear] = useState(2020)
     const [selectedSem, setSelectedSem] = useState("--")
     const [selectedResource, setSelectedResource] = useState("--")
-    const [selectedCourse, setSelectedCourse] = useState("BCA")
+    const [selectedCourse, setSelectedCourse] = useState("BTECH")
     const [filteredResources, setFilteredResources] = useState([])
 
     const resourceCategoryArray = [
