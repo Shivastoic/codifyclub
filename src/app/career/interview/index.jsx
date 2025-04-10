@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from "react"
-import CategorySelector from "@/app/components/category-selector"
 import QAAccordion from "./qa-accordion"
 import PrimaryButtonDark from "@/app/components/buttons/primary/primary-dark"
 import { IoMdRefresh } from "react-icons/io"
+import { FiSearch } from "react-icons/fi"
 import { GoogleGenerativeAI } from "@google/generative-ai"
 
 // DATA
 const data = {
     button_text: "Refresh",
+    search_placeholder: "Enter interview topic (e.g. Python, JavaScript, React)",
 }
 
 // Function to evaluate the response
@@ -83,17 +84,13 @@ const fetchQuestionsFromGemini = async (selectedCategory) => {
 }
 
 export default function InterviewQAComponents() {
+    const [searchInput, setSearchInput] = useState("Python")
     const [selectedQuestionCategory, setSelectedQuestionCategory] = useState("Python")
     const [questions, setQuestions] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
     const [ratings, setRatings] = useState({})
-
-    const questionsCategories = [
-        "Python",
-        "Frontend Web Development",
-        "Backend Web Development",
-    ]
+    const [openAccordionIndex, setOpenAccordionIndex] = useState(0)
 
     // Fetch questions using Gemini API
     const fetchQuestions = useCallback(async () => {
@@ -104,6 +101,8 @@ export default function InterviewQAComponents() {
             const questionsText = await fetchQuestionsFromGemini(selectedQuestionCategory)
             const parsedQuestions = questionsText.split("\n").filter(q => q)
             setQuestions(parsedQuestions)
+            // Reset open accordion to the first one whenever new questions are loaded
+            setOpenAccordionIndex(0)
         } catch (error) {
             setError("Failed to load questions.")
         } finally {
@@ -131,23 +130,54 @@ export default function InterviewQAComponents() {
         fetchQuestions()
     }, [fetchQuestions])
 
+    // Handle search submission
+    const handleSearchSubmit = (e) => {
+        e.preventDefault()
+        if (searchInput.trim()) {
+            setSelectedQuestionCategory(searchInput.trim())
+        }
+    }
+
     // Handle refresh button click
     const handleRefresh = () => {
-        fetchQuestions()
+        if (searchInput.trim()) {
+            setSelectedQuestionCategory(searchInput.trim())
+            fetchQuestions()
+        }
+    }
+
+    // Toggle accordion open/close
+    const toggleAccordion = (index) => {
+        setOpenAccordionIndex(openAccordionIndex === index ? null : index)
     }
 
     return (
         <section className="space-y-6">
-            <CategorySelector 
-                categories={questionsCategories}
-                selectedCategory={selectedQuestionCategory}
-                onSelect={(category) => setSelectedQuestionCategory(category)}
-            />
+            {/* Search Bar */}
+            <form onSubmit={handleSearchSubmit} className="relative">
+                <div className="relative flex items-center">
+                    <input
+                        type="text"
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        placeholder={data.search_placeholder}
+                        className="w-full px-4 py-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <button 
+                        type="submit" 
+                        className="group absolute right-0 text-gray-500 hover:text-gray-700 bg-accent h-full aspect-square flex items-center justify-center rounded-r-lg"
+                        aria-label="Search"
+                    >
+                        <FiSearch className="text-xl group-hover:text-2xl duration-150 text-white" />
+                    </button>
+                </div>
+            </form>
+            
             <div className="flex flex-col px-4 rounded-xl bg-white h-full w-full">
                 {isLoading ? (
-                    <p>Loading questions...</p>
+                    <p className="py-4 text-center">Loading questions...</p>
                 ) : error ? (
-                    <p className="text-red-500">{error}</p>
+                    <p className="py-4 text-center text-red-500">{error}</p>
                 ) : (
                     questions.map((question, index) => (
                         <QAAccordion 
@@ -155,6 +185,8 @@ export default function InterviewQAComponents() {
                             title={question} 
                             onSubmit={(answer) => handleAnswerSubmit(question, answer)}
                             rating={ratings[question]}
+                            isOpen={openAccordionIndex === index}
+                            onToggle={() => toggleAccordion(index)}
                         />
                     ))
                 )}
